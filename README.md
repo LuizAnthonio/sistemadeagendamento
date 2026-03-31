@@ -26,9 +26,19 @@ Este projeto foi construído para demonstrar conceitos avançados de engenharia 
    git clone [https://github.com/SeuUsuario/sistemadeagendamento.git](https://github.com/SeuUsuario/sistemadeagendamento.git)
 
 
-📍 Endpoints PrincipaisAgendamentosMétodoEndpointDescriçãoPOST/api/appointmentsCria um novo agendamento no sistema.GET/api/appointments/viewLista todos os agendamentos cadastrados (JSON).
+📍 Endpoints PrincipaisAgendamentos
 
-Relatórios (Alta Performance)MétodoEndpointDescriçãoGET/api/appointments/report[Stream Endpoint] Gera um download instantâneo de CSV processando os dados sob demanda.
+MétodoEndpointDescrição
 
-Método,Endpoint,Descrição
-GET,/api/appointments/report,[Stream Endpoint] Gera um download instantâneo de CSV processando os dados sob demanda.
+#POST
+/api/appointmentsCria um novo agendamento no sistema.
+
+#GET
+/api/appointments/viewLista todos os agendamentos cadastrados (JSON).
+
+Relatórios (Alta Performance)
+MétodoEndpointDescrição
+#GET
+/api/appointments/report
+
+[Stream Endpoint] Gera um download instantâneo de CSV processando os dados sob demanda.
