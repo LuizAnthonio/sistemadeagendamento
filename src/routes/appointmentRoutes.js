@@ -7,6 +7,8 @@ router.get('/report', ReportController.downloadReport);
 
 
 
+router.get('/', AppointmentController.view);
+
 router.post('/', AppointmentController.create);
 
 module.exports = router;
