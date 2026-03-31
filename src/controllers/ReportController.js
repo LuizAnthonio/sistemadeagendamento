@@ -1,4 +1,4 @@
-const Appointment = require('../models/Appointment');
+const Appointment = require('../models/Appointment.js');
 const { Transform } = require('stream');
 
 const downloadReport = async (req, res) => {
@@ -6,13 +6,11 @@ const downloadReport = async (req, res) => {
         res.setHeader('Content-Type', 'text/csv');
         res.setHeader('Content-Disposition', 'attachment; filename=relatorio_agendamentos.csv');
 
-        // Escreve o cabeçalho do CSV
         res.write('Paciente,Servico,Data_Inicio\n');
 
-        // Cursor do MongoDB (Não carrega tudo na RAM)
+        
         const cursor = Appointment.find().cursor();
 
-        // Transformador: Objeto JS -> Linha de CSV
         const transformer = new Transform({
             objectMode: true,
             transform(chunk, encoding, callback) {
@@ -21,7 +19,7 @@ const downloadReport = async (req, res) => {
             }
         });
 
-        // Pipeline: Banco -> Filtro/Transformação -> Resposta HTTP
+     
         cursor.pipe(transformer).pipe(res);
 
     } catch (error) {
